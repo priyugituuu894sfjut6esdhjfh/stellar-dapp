@@ -1,0 +1,20 @@
+src/lib/stellar/transaction.ts
+  s_3f48f987e98f8d::t_90ed47dfef771c 26-27
+  s_3f48f987e98f8d::t_f92128789d6a1d 37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "95b30fceef7640ad321327a1d7c5bd3838dd7137",
+  "prompts": {},
+  "sessions": {
+    "s_3f48f987e98f8d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06b4ae603fferHP4TPEYOs6EuB",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
