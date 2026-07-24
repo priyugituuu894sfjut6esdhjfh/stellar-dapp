@@ -1,0 +1,21 @@
+src/lib/stellar/transaction.ts
+  s_3f48f987e98f8d::t_f67eb2f9dfccd3 36-39
+src/lib/components/ContractInteraction.svelte
+  s_3f48f987e98f8d::t_1b96bfc87bf869 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "8307ffcaa84803784434fdf5b494f98917f3f8f5",
+  "prompts": {},
+  "sessions": {
+    "s_3f48f987e98f8d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06b4ae603fferHP4TPEYOs6EuB",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
