@@ -1,0 +1,38 @@
+backend/src/errors.rs
+  s_6143eaeca8f37d::t_e0ca46ebe54d01 60
+src/lib/stellar/wallet.ts
+  s_6143eaeca8f37d::t_d6d9d7e26de2dc 86-167,170-177
+backend/Cargo.toml
+  s_6143eaeca8f37d::t_ead6f017cdcab9 21
+backend/src/handlers/wallet.rs
+  s_6143eaeca8f37d::t_500777f4a522c3 1,3,9-13,17,25-26,29
+backend/src/handlers/contract.rs
+  s_6143eaeca8f37d::t_100dac15387f4b 11,18,20,26
+backend/src/stellar.rs
+  s_6143eaeca8f37d::t_02e7f23029f910 4
+  s_6143eaeca8f37d::t_24132734ab1284 83-85,92
+  s_6143eaeca8f37d::t_542b9043b00913 81,86
+  s_6143eaeca8f37d::t_0dc2786f052d84 69,73
+src/lib/api.ts
+  s_6143eaeca8f37d::t_d56f9c337650c4 73,76
+src/lib/stellar/contract.ts
+  s_6143eaeca8f37d::t_eeaa25bcf13219 64-81
+backend/Cargo.lock
+  s_6143eaeca8f37d::t_4fd6bcb6b8ff37 1203,1561-1566
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "2e41be9d8d945257d665905bb5e7cfddbd7c3602",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
