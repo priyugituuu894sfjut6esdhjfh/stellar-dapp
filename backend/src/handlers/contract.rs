@@ -8,36 +8,22 @@ use crate::AppState;
 
 #[derive(Deserialize)]
 pub struct SimulateRequest {
-    pub contract_address: String,
-    pub method: String,
-    pub args: Option<Vec<serde_json::Value>>,
-    pub source: Option<String>,
+    pub xdr: String,
 }
 
 pub async fn simulate(
     State(state): State<AppState>,
     Json(req): Json<SimulateRequest>,
 ) -> Result<Json<serde_json::Value>, AppError> {
-    if req.contract_address.is_empty() {
+    if req.xdr.is_empty() {
         return Err(AppError::ValidationError(
-            "Contract address is required".into(),
+            "Transaction XDR is required".into(),
         ));
     }
 
-    if req.method.is_empty() {
-        return Err(AppError::ValidationError("Method is required".into()));
-    }
-
-    let source = req.source.unwrap_or_default();
-
     let result = state
         .stellar
-        .simulate_contract(
-            &req.contract_address,
-            &req.method,
-            &req.args,
-            &source,
-        )
+        .simulate_xdr(&req.xdr)
         .await
         .map_err(|e| AppError::ContractError(e.to_string()))?;
 

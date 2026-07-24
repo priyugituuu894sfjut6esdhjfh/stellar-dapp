@@ -57,10 +57,4 @@ impl IntoResponse for AppError {
     }
 }
 
-pub async fn error_middleware(
-    req: axum::http::Request<axum::body::Body>,
-    next: axum::middleware::Next,
-) -> Result<impl IntoResponse, AppError> {
-    let response = next.run(req).await;
-    Ok(response)
-}
+

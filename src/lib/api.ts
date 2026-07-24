@@ -70,10 +70,10 @@ export async function submitTransaction(signedXdr: string) {
 	);
 }
 
-export async function simulateContract(contractAddress: string, method: string, args?: unknown[], source?: string) {
+export async function simulateContract(xdr: string) {
 	return apiPost<unknown>(
 		'/api/contract/simulate',
-		{ contract_address: contractAddress, method, args, source }
+		{ xdr }
 	);
 }
 

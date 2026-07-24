@@ -1,5 +1,4 @@
 use axum::{
-    middleware,
     routing::{get, post},
     Router,
 };
@@ -58,7 +57,6 @@ async fn main() {
         .route("/api/contract/simulate", post(contract::simulate))
         .route("/api/contract/call", post(contract::call_contract))
         .route("/api/faucet/:address", get(faucet::request_airdrop))
-        .layer(middleware::from_fn(errors::error_middleware))
         .layer(cors)
         .with_state(state);
 

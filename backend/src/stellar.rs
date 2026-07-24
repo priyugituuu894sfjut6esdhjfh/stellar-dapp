@@ -1,6 +1,7 @@
 use anyhow::Result;
 use reqwest::Client;
 use serde_json::Value;
+use urlencoding::encode;
 
 pub struct StellarClient {
     http: Client,
@@ -65,13 +66,11 @@ impl StellarClient {
 
     pub async fn submit_transaction_xdr(&self, signed_xdr: &str) -> Result<Value> {
         let url = format!("{}/transactions", self.horizon_url);
-        let _body = serde_json::json!({
-            "tx": signed_xdr
-        });
+        let encoded = encode(signed_xdr);
         let resp: Value = self.http
             .post(&url)
             .header("Content-Type", "application/x-www-form-urlencoded")
-            .body(format!("tx={}", signed_xdr))
+            .body(format!("tx={}", encoded))
             .send()
             .await?
             .json()
@@ -79,42 +78,18 @@ impl StellarClient {
         Ok(resp)
     }
 
-    pub async fn simulate_contract(
-        &self,
-        contract_address: &str,
-        method: &str,
-        args: &Option<Vec<Value>>,
-        source: &str,
-    ) -> Result<Value> {
-        let mut auths = vec![];
-        if !source.is_empty() {
-            auths.push(serde_json::json!({
-                "address": source
-            }));
-        }
-
-        let mut contract_args = vec![];
-        if let Some(args) = args {
-            contract_args = args.clone();
-        }
-
+    pub async fn simulate_xdr(&self, xdr: &str) -> Result<Value> {
         let body = serde_json::json!({
-            "transactions": [{
-                "source": source,
-                "auths": auths,
-                "operations": [{
-                    "invoke": {
-                        "contract_address": contract_address,
-                        "method": method,
-                        "args": contract_args
-                    }
-                }]
-            }]
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "simulateTransaction",
+            "params": [xdr]
         });
 
         let url = format!("{}/soroban/rpc", self.soroban_url);
         let resp: Value = self.http
             .post(&url)
+            .header("Content-Type", "application/json")
             .json(&body)
             .send()
             .await?

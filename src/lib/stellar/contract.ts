@@ -1,7 +1,6 @@
 import {
 	Contract,
 	TransactionBuilder,
-	Keypair,
 	Account,
 	Networks
 } from '@stellar/stellar-sdk';
@@ -62,7 +61,24 @@ export async function readContractState(
 	args: any[] = []
 ): Promise<{ success: boolean; result?: any; message: string }> {
 	try {
-		const result = await simulateContract(contractAddress, method, args);
+		const contract = new Contract(contractAddress);
+
+		const source = new Account(
+			'GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWHF',
+			'0'
+		);
+
+		const tx = new TransactionBuilder(source, {
+			fee: '100',
+			networkPassphrase: NETWORK_PASSPHRASE
+		})
+			.addOperation(contract.call(method, ...args))
+			.setTimeout(180)
+			.build();
+
+		const xdr = tx.toXDR();
+
+		const result = await simulateContract(xdr);
 		return { success: true, result: result, message: 'State read successfully' };
 	} catch (error: any) {
 		return { success: false, message: `Read error: ${error.message || error}` };
