@@ -1,0 +1,21 @@
+src/routes/+page.svelte
+  s_6143eaeca8f37d::t_72354312db3090 2,6-7,10,18,23-50,52-53,55-57,59-60,62-64,66-71,73-74,76-108,112-120,126,174,181-186,189-190,212,217,226-287,293,312-330,336-337,342,351,355-367,369-370,375-376,378-382,397-399,410-415,418-422,425-426,429-477,495-508,514-518,530,532-533,536-540,544-551
+src/routes/app/+page.svelte
+  s_6143eaeca8f37d::t_03f060c7545c9a 1-229
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "5bbc7187af29b817837e9916f536727d44f7299f",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
