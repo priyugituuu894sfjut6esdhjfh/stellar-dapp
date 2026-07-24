@@ -36,17 +36,6 @@ jobs:
         with:
           path: build
 
-      - name: Deploy to Vercel (production)
-        if: github.ref == 'refs/heads/main'
-        uses: amondnet/vercel-action@v25
-        id: vercel
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
   backend:
     runs-on: ubuntu-latest
     steps:
