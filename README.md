@@ -1,10 +1,47 @@
 # Decenx — White · Yellow · Green Belt
 
-A full-stack Stellar **testnet** dApp built with **SvelteKit (Svelte 5)** + **Rust (Axum)** backend, covering all three challenge levels: **White Belt (L1)**, **Yellow Belt (L2)**, and **Green Belt (L3)**.
+A full-stack Stellar **testnet** dApp built with **SvelteKit (Svelte 5)** + **Rust (Axum)** backend, covering all three challenge levels: **White Belt (L1)**, **Yellow Belt (L2)**, and 
 
-Design inspired by the [Coinbase Design System](https://getdesign.md/coinbase) (`DESIGN.md`).
+<img width="1902" height="870" alt="priyu1" src="https://github.com/user-attachments/assets/6cde8ec4-c437-4c37-aed5-fc08a764ff32" />
+
+
+<img width="1868" height="883" alt="prityu2" src="https://github.com/user-attachments/assets/ae308bf6-4852-4566-b85f-f5ea4a9fe05c" />
+
+<img width="1916" height="917" alt="priyu3" src="https://github.com/user-attachments/assets/1ea361a3-4fd6-4094-8b8c-f278daad5afb" />
+
+
+<img width="1902" height="908" alt="priyu4" src="https://github.com/user-attachments/assets/3cc9ca86-4d2c-4d20-ae90-77d1321162bb" />
+
+
+<img width="1918" height="900" alt="priyu5" src="https://github.com/user-attachments/assets/a108378f-a907-46c2-b45a-d777d0f539c3" />
 
 ---
+##Video Demo --
+---
+
+
+
+
+
+
+
+https://github.com/user-attachments/assets/59234cad-5a63-4453-92be-bbfe4d7e1075
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## ✅ Requirements Coverage
 
