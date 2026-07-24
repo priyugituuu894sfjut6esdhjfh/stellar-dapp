@@ -1,0 +1,37 @@
+src/lib/stellar/transaction.ts
+  s_3f48f987e98f8d::t_987a72e7540d81 46-47
+  s_6143eaeca8f37d::t_ced54fadf217ba 38-45,48-51
+backend/src/stellar.rs
+  s_6143eaeca8f37d::t_aa5034cf4cad53 102-103
+backend/src/handlers/faucet.rs
+  s_6143eaeca8f37d::t_57bcd2422804be 24-31
+src/lib/components/Balance.svelte
+  s_6143eaeca8f37d::t_cebdb3268752e7 2-3,7-9,22-28,30-37,53-55,71,73-85
+  s_3f48f987e98f8d::t_4e3e823a57d787 167-220
+  s_3f48f987e98f8d::t_7383dd0e24aab5 72
+  s_3f48f987e98f8d::t_89ba857db21fa5 29,38-52
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "35592e749ab5882e25d9013e3ecff0b89e5b64c4",
+  "prompts": {},
+  "sessions": {
+    "s_3f48f987e98f8d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06b4ae603fferHP4TPEYOs6EuB",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    },
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
