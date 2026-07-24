@@ -23,7 +23,8 @@ export async function sendXlm(
 	destinationAddress: string,
 	amount: string
 ): Promise<TransactionResult> {
-	const numAmount = parseFloat(amount);
+	const amountStr = String(amount);
+	const numAmount = parseFloat(amountStr);
 	if (isNaN(numAmount) || numAmount <= 0) {
 		return { success: false, message: 'Invalid amount. Must be greater than 0.' };
 	}
@@ -33,7 +34,7 @@ export async function sendXlm(
 	}
 
 	try {
-		await validateTransaction(sourcePublicKey, destinationAddress, amount);
+		await validateTransaction(sourcePublicKey, destinationAddress, amountStr);
 
 		let sourceAccount;
 		try {
