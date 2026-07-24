@@ -1,0 +1,43 @@
+src/lib/stellar/transaction.ts
+  s_6143eaeca8f37d::t_31cb46d793d77f 7,12,36-37,66,70-71,76,94-95
+render.yaml
+  s_6143eaeca8f37d::t_9a34cf41f6fcfa 1-23
+vercel.json
+  s_6143eaeca8f37d::t_5a7576b1de29b2 5
+  s_6143eaeca8f37d::t_894110408552d8 4,6-7,9
+  s_6143eaeca8f37d::t_ddb19e02a37b81 2-3,8,11
+  s_6143eaeca8f37d::t_780c0f1fbc6fe0 1,10,12
+src/lib/api.ts
+  s_6143eaeca8f37d::t_5349dce7620ad5 1-76
+.github/workflows/ci.yml
+  s_6143eaeca8f37d::t_18f42e3800fbdc 39-49,67-74
+  s_6143eaeca8f37d::t_7cce5650415f4a 75
+.vercelignore
+  s_6143eaeca8f37d::t_6954bed29750d4 1-10
+src/lib/stellar/contract.ts
+  s_6143eaeca8f37d::t_ece48661acf322 11
+  s_6143eaeca8f37d::t_bca46f0a8991c6 48-53,65-66
+  s_6143eaeca8f37d::t_f1f44e8e156f35 46
+src/lib/stellar/balance.ts
+  s_6143eaeca8f37d::t_913a3ab085d9f5 1,5-6,17-22
+backend/src/main.rs
+  s_6143eaeca8f37d::t_42cf6d8df6218c 53-55,60
+backend/Dockerfile
+  s_6143eaeca8f37d::t_066f5a2b1a22e9 1-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "a3064b062a37030766fb367f97819ce299f38874",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
