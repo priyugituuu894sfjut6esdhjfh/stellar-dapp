@@ -1,9 +1,20 @@
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://decenx.onrender.com';
 
+async function safeJson(res: Response) {
+	const text = await res.text();
+	try {
+		return JSON.parse(text);
+	} catch {
+		return { __raw: text };
+	}
+}
+
 async function apiGet<T>(path: string): Promise<T> {
 	const res = await fetch(`${BACKEND_URL}${path}`);
-	const body = await res.json();
-	if (!res.ok || !body.success) {
+	const body = await safeJson(res);
+	if (!res.ok || body.__raw || !body.success) {
+		const raw = body.__raw;
+		if (raw) throw new Error(raw.slice(0, 300));
 		const msg = body?.error?.message || body?.error || `Backend error ${res.status}`;
 		throw new Error(typeof msg === 'string' ? msg : JSON.stringify(msg));
 	}
@@ -16,8 +27,10 @@ async function apiPost<T>(path: string, data: unknown): Promise<T> {
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify(data)
 	});
-	const body = await res.json();
-	if (!res.ok || !body.success) {
+	const body = await safeJson(res);
+	if (!res.ok || body.__raw || !body.success) {
+		const raw = body.__raw;
+		if (raw) throw new Error(raw.slice(0, 300));
 		const msg = body?.error?.message || body?.error || `Backend error ${res.status}`;
 		throw new Error(typeof msg === 'string' ? msg : JSON.stringify(msg));
 	}
