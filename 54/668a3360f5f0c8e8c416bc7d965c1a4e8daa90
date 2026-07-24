@@ -1,0 +1,19 @@
+src/lib/stellar/wallet.ts
+  s_6143eaeca8f37d::t_ad0d5d59c2bd1c 88-101
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "54668a3360f5f0c8e8c416bc7d965c1a4e8daa90",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
