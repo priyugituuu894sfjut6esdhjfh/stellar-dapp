@@ -4,7 +4,7 @@
 	import { Address } from '@stellar/stellar-sdk';
 
 	let contractAddr = $state(CONTRACT_ADDRESS);
-	let method = $state('get_balance');
+	let method = $state('get_total_donations');
 	let argsStr = $state('');
 	let calling = $state(false);
 	let contractResult = $state('');

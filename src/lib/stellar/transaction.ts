@@ -33,6 +33,10 @@ export async function sendXlm(
 		return { success: false, message: 'Invalid destination address.' };
 	}
 
+	if (sourcePublicKey === destinationAddress) {
+		return { success: false, message: 'Cannot send XLM to your own address.' };
+	}
+
 	try {
 		await validateTransaction(sourcePublicKey, destinationAddress, amountStr);
 
