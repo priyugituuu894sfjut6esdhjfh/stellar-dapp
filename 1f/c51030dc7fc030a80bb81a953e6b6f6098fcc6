@@ -1,0 +1,20 @@
+vite.config.ts
+  s_6143eaeca8f37d::t_a8ac79e9d07d38 5
+  s_6143eaeca8f37d::t_724a26c76f3bb5 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "1fc51030dc7fc030a80bb81a953e6b6f6098fcc6",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
