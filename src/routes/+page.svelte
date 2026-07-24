@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Stellar dApp — Decentralized Finance on Testnet</title>
+	<title>Decenx — Decentralized Finance on Testnet</title>
 	<meta name="description" content="Send crypto with confidence. Connect your wallet, send XLM, and interact with smart contracts on the Stellar testnet." />
 </svelte:head>
 
@@ -12,7 +12,7 @@
 		<div class="nav-inner">
 			<div class="nav-left">
 				<span class="logo-mark"></span>
-				<span class="logo-text">Stellar</span>
+				<span class="logo-text">Decenx</span>
 			</div>
 			<div class="nav-right">
 				<button class="btn-ghost" onclick={() => goto('/app')}>Sign in</button>
@@ -50,7 +50,7 @@
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.5"/></svg>
 					</div>
 					<h3>Wallet Connection</h3>
-					<p>Connect Freighter in one click. Manage your Stellar wallet without leaving the browser.</p>
+					<p>Connect Freighter, Albedo, Rabet, and more. Manage your Stellar wallet without leaving the browser.</p>
 				</div>
 				<div class="feature-card">
 					<div class="feature-icon">
@@ -99,7 +99,7 @@
 	<section class="cta">
 		<div class="cta-inner">
 			<h2>Ready to start?</h2>
-			<p>Connect your Freighter wallet and explore the Stellar testnet in minutes.</p>
+			<p>Connect your wallet and explore the Stellar testnet in minutes.</p>
 			<button class="btn-primary" onclick={() => goto('/app')}>
 				Launch App
 				<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -111,7 +111,7 @@
 		<div class="footer-inner">
 			<div class="footer-left">
 				<span class="logo-mark-sm"></span>
-				<span class="footer-text">Stellar dApp</span>
+				<span class="footer-text">Decenx</span>
 			</div>
 			<div class="footer-right">
 				<a href="https://stellar.org" target="_blank" rel="noopener noreferrer" class="footer-link">Stellar.org</a>

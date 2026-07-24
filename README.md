@@ -1,4 +1,4 @@
-# Stellar dApp — White · Yellow · Green Belt
+# Decenx — White · Yellow · Green Belt
 
 A full-stack Stellar **testnet** dApp built with **SvelteKit (Svelte 5)** + **Rust (Axum)** backend, covering all three challenge levels: **White Belt (L1)**, **Yellow Belt (L2)**, and **Green Belt (L3)**.
 
@@ -57,7 +57,7 @@ Design inspired by the [Coinbase Design System](https://getdesign.md/coinbase) (
 
 ### 1. Frontend
 ```bash
-cd stellar-dapp
+cd decenx
 npm install
 npm run dev          # http://localhost:5173
 ```
@@ -137,7 +137,7 @@ All passing. Includes balance, transaction validation, wallet error handling, an
 |---------|-----|--------|
 | Frontend (GitHub Pages) | https://priyugituuu894sfjut6esdhjfh.github.io/stellar-dapp/ | ✅ Live |
 | Backend API | https://decenx.onrender.com | ✅ Live |
-| Vercel | https://stellar-dapp-pritamscodees-projects.vercel.app | 🔒 SSO |
+| Vercel | https://decenx-pritamscodees-projects.vercel.app | 🔒 SSO |
 
 ### Backend Health
 ```
@@ -150,7 +150,7 @@ GET https://decenx.onrender.com/health
 ## 🏗️ Architecture
 
 ```
-stellar-dapp/
+decenx/
 ├── src/                    # SvelteKit frontend
 │   ├── lib/api.ts          # Backend API client
 │   ├── lib/components/     # UI components

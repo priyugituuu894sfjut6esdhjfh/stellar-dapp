@@ -9,8 +9,8 @@
 </script>
 
 <svelte:head>
-	<title>Stellar dApp — Wallet</title>
-	<meta name="description" content="Stellar testnet dApp — wallet, payments, and smart contracts" />
+	<title>Decenx — Wallet</title>
+	<meta name="description" content="Decenx — wallet, payments, and smart contracts on testnet" />
 </svelte:head>
 
 <div class="app">
@@ -19,7 +19,7 @@
 			<div class="nav-left">
 				<button class="nav-home" onclick={() => goto('/')}>
 					<span class="logo-mark"></span>
-					<span class="logo-text">Stellar</span>
+					<span class="logo-text">Decenx</span>
 				</button>
 			</div>
 			<div class="nav-right">
@@ -49,7 +49,7 @@
 						<svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="16" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M4 14h24" stroke="currentColor" stroke-width="1.5"/><circle cx="22" cy="20" r="2" fill="currentColor"/></svg>
 					</div>
 					<h2>Connect your wallet</h2>
-					<p>Connect your Freighter wallet to start sending XLM and interacting with smart contracts on the Stellar testnet.</p>
+					<p>Connect your wallet to start sending XLM and interacting with smart contracts on the Stellar testnet.</p>
 					<div class="prompt-action">
 						<WalletConnect />
 					</div>
@@ -60,7 +60,7 @@
 
 	<footer>
 		<div class="footer-inner">
-			<span class="footer-text">Stellar dApp &mdash; Testnet</span>
+			<span class="footer-text">Decenx &mdash; Testnet</span>
 			<a href="https://stellar.org" target="_blank" rel="noopener noreferrer" class="footer-link">Stellar.org</a>
 		</div>
 	</footer>

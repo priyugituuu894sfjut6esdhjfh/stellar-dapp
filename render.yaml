@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: stellar-backend
+    name: decenx-backend
     runtime: docker
     plan: free
     region: oregon

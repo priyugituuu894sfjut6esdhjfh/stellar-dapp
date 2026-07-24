@@ -2,7 +2,6 @@ import { writable, derived } from 'svelte/store';
 import {
 	connectWalletById,
 	disconnectWallet,
-	getAddress,
 	getAvailableWallets
 } from '$lib/stellar/wallet';
 import type { WalletInfo } from '$lib/stellar/wallet';
@@ -29,22 +28,13 @@ export const shortAddress = derived(publicKey, ($pk) => {
 });
 
 export async function initializeWallet() {
+	if (typeof window === 'undefined') return;
 	try {
 		const wallets = await getAvailableWallets();
 		availableWallets.set(wallets);
 		walletInstalled.set(wallets.some((w) => w.isAvailable));
-
-		const pk = await getAddress();
-		if (pk) {
-			isConnected.set(true);
-			publicKey.set(pk);
-			const connectedWallet = wallets.find((w) => w.isAvailable);
-			connectedWalletName.set(connectedWallet?.name || 'Wallet');
-			await refreshBalance(pk);
-		}
 	} catch (err) {
-		console.error('Failed to initialize wallet:', err);
-		error.set('Failed to initialize wallet connection.');
+		console.error('Failed to load wallets:', err);
 	}
 }
 
@@ -87,13 +77,19 @@ export async function disconnect() {
 
 export async function refreshBalance(pk?: string) {
 	try {
-		const address = pk || (await getAddress());
+		const address = pk || publicKeyToUse();
 		if (!address) return;
 		const bal = await getXlmBalance(address);
 		balance.set(bal);
 	} catch (err) {
 		console.error('Failed to refresh balance:', err);
 	}
+}
+
+function publicKeyToUse(): string | null {
+	let pk: string | null = null;
+	publicKey.subscribe((v) => (pk = v))();
+	return pk;
 }
 
 export function setTxStatus(

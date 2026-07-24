@@ -2,10 +2,8 @@ import '@testing-library/svelte/vitest';
 import { vi } from 'vitest';
 
 vi.mock('$lib/stellar/wallet', () => ({
-	initWalletKit: vi.fn(),
 	getAvailableWallets: vi.fn().mockResolvedValue([]),
 	connectWalletById: vi.fn().mockResolvedValue({ publicKey: 'GTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST' }),
-	getAddress: vi.fn().mockResolvedValue('GTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST'),
 	disconnectWallet: vi.fn().mockResolvedValue(undefined),
 	signTransaction: vi.fn().mockResolvedValue({ signedTxXdr: 'AAAAAG...', signerAddress: 'GTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST' })
 }));
