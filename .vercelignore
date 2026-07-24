@@ -1,0 +1,10 @@
+.github/
+backend/
+contracts/
+render.yaml
+Dockerfile
+*.md
+src/tests/
+node_modules/
+build/
+.svelte-kit/

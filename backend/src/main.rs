@@ -50,14 +50,14 @@ async fn main() {
 
     let api = Router::new()
         .route("/health", get(health::health_check))
-        .route("/api/wallet/{address}/balance", get(balance::get_balance))
-        .route("/api/wallet/{address}/balances", get(balance::get_balances))
-        .route("/api/wallet/{address}/transactions", get(wallet::get_history))
+        .route("/api/wallet/:address/balance", get(balance::get_balance))
+        .route("/api/wallet/:address/balances", get(balance::get_balances))
+        .route("/api/wallet/:address/transactions", get(wallet::get_history))
         .route("/api/transaction/validate", post(transaction::validate))
         .route("/api/transaction/submit", post(transaction::submit))
         .route("/api/contract/simulate", post(contract::simulate))
         .route("/api/contract/call", post(contract::call_contract))
-        .route("/api/faucet/{address}", get(faucet::request_airdrop))
+        .route("/api/faucet/:address", get(faucet::request_airdrop))
         .layer(middleware::from_fn(errors::error_middleware))
         .layer(cors)
         .with_state(state);

@@ -1,0 +1,12 @@
+{
+  "framework": "sveltekit",
+  "outputDirectory": "build",
+  "headers": [
+    {
+      "source": "/_app/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

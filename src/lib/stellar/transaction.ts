@@ -2,15 +2,14 @@ import {
 	TransactionBuilder,
 	Operation,
 	Asset,
-	Keypair,
 	Account,
 	Transaction,
-	StrKey,
-	Networks
+	StrKey
 } from '@stellar/stellar-sdk';
 import { horizonServer, NETWORK_PASSPHRASE, BASE_FEE } from './server';
 import { signTransaction } from './wallet';
 import type { WalletErrorInfo } from './wallet';
+import { validateTransaction, submitTransaction, fetchTransactionHistory } from '../api';
 
 export interface TransactionResult {
 	success: boolean;
@@ -34,6 +33,8 @@ export async function sendXlm(
 	}
 
 	try {
+		await validateTransaction(sourcePublicKey, destinationAddress, amount);
+
 		const sourceAccount = await horizonServer.loadAccount(sourcePublicKey);
 
 		const transaction = new TransactionBuilder(sourceAccount, {
@@ -62,23 +63,17 @@ export async function sendXlm(
 			};
 		}
 
-		const signedTx = new Transaction(
-			signResult.signedTxXdr,
-			NETWORK_PASSPHRASE
-		);
-
-		const result = await horizonServer.submitTransaction(signedTx);
+		const result = await submitTransaction(signResult.signedTxXdr);
 
 		return {
 			success: true,
-			hash: result.hash,
-			message: `Transaction successful! Hash: ${result.hash}`
+			hash: result.data.hash,
+			message: `Transaction successful! Hash: ${result.data.hash}`
 		};
 	} catch (error: any) {
-		const msg = error?.response?.data?.extras?.result_codes?.transaction || error?.message || String(error);
 		return {
 			success: false,
-			message: `Transaction failed: ${msg}`
+			message: `Transaction failed: ${error.message || String(error)}`
 		};
 	}
 }
@@ -96,15 +91,8 @@ export async function getTransactionHistory(
 	}>
 > {
 	try {
-		const response = await horizonServer
-			.transactions()
-			.forAccount(publicKey)
-			.order('desc')
-			.limit(limit)
-			.call();
-
-		const records = await response.records;
-		return records.map((tx: any) => ({
+		const res = await fetchTransactionHistory(publicKey, limit);
+		return res.data.map((tx) => ({
 			hash: tx.hash,
 			type: tx.memo || 'payment',
 			timestamp: new Date(tx.created_at).toLocaleString(),

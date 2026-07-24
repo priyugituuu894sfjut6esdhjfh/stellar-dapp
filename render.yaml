@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: stellar-backend
+    runtime: docker
+    plan: free
+    region: oregon
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: HORIZON_URL
+        value: https://horizon-testnet.stellar.org
+      - key: SOROBAN_URL
+        value: https://soroban-testnet.stellar.org
+      - key: NETWORK_PASSPHRASE
+        value: Test SDF Network ; September 2015
+      - key: PORT
+        value: 3001
+      - key: RUST_LOG
+        value: info
+    healthCheckPath: /health
+    buildFilter:
+      paths:
+        - backend/**
