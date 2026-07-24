@@ -131,11 +131,28 @@ All passing. Includes balance, transaction validation, wallet error handling, an
 
 ---
 
+## 🚀 Live URLs
+
+| Service | URL | Status |
+|---------|-----|--------|
+| Frontend (GitHub Pages) | https://priyugituuu894sfjut6esdhjfh.github.io/stellar-dapp/ | ✅ Live |
+| Backend API | https://decenx.onrender.com | ✅ Live |
+| Vercel | https://stellar-dapp-pritamscodees-projects.vercel.app | 🔒 SSO |
+
+### Backend Health
+```
+GET https://decenx.onrender.com/health
+→ {"status":"ok","network":"testnet","horizon":"...","soroban":"..."}
+```
+
+---
+
 ## 🏗️ Architecture
 
 ```
 stellar-dapp/
 ├── src/                    # SvelteKit frontend
+│   ├── lib/api.ts          # Backend API client
 │   ├── lib/components/     # UI components
 │   ├── lib/stellar/        # SDK utilities (wallet, balance, tx, contract)
 │   ├── lib/stores/         # Svelte state
@@ -147,8 +164,11 @@ stellar-dapp/
 ├── contracts/
 │   └── donation_vault/     # Soroban smart contract (Rust)
 ├── .github/workflows/      # CI/CD
+├── render.yaml             # Render deployment config
 └── DESIGN.md               # Coinbase design tokens
 ```
+
+**Data flow:** Frontend → `src/lib/api.ts` → Backend API (`decenx.onrender.com`) → Stellar Testnet
 
 ---
 
