@@ -172,7 +172,7 @@ All passing. Includes balance, transaction validation, wallet error handling, an
 
 | Service | URL | Status |
 |---------|-----|--------|
-| Frontend (GitHub Pages) | https://priyugituuu894sfjut6esdhjfh.github.io/stellar-dapp/ | ✅ Live |
+| Frontend (GitHub Pages) | [https://priyugituuu894sfjut6esdhjfh.github.io/stellar-dapp/ ](https://stellar-deploy-six.vercel.app)| ✅ Live |
 | Backend API | https://decenx.onrender.com | ✅ Live |
 | Vercel | https://decenx-pritamscodees-projects.vercel.app | 🔒 SSO |
 
