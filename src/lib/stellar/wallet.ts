@@ -83,98 +83,22 @@ function parseWalletError(error: unknown): WalletErrorInfo {
 	return { type: 'unknown', message: msg || 'An unexpected error occurred.' };
 }
 
-interface WalletDetection {
-	id: string;
-	name: string;
-	icon: string;
-	isAvailable: boolean;
-}
-
-function detectWalletsInBrowser(): WalletDetection[] {
-	if (typeof window === 'undefined') return [];
-
-	const wallets: WalletDetection[] = [
-		{
-			id: 'freighter',
-			name: 'Freighter',
-			icon: 'https://stellar.walletskit.dev/freighter.svg',
-			isAvailable: !!(window as any).freighter?.isFreighter
-		},
-		{
-			id: 'albedo',
-			name: 'Albedo',
-			icon: 'https://stellar.walletskit.dev/albedo.svg',
-			isAvailable: !!(window as any).albedo
-		},
-		{
-			id: 'rabet',
-			name: 'Rabet',
-			icon: 'https://stellar.walletskit.dev/rabet.svg',
-			isAvailable: !!(window as any).rabet?.isRabet
-		},
-		{
-			id: 'xbull',
-			name: 'xBull',
-			icon: 'https://stellar.walletskit.dev/xbull.svg',
-			isAvailable: !!(window as any).xBull
-		},
-		{
-			id: 'lobstr',
-			name: 'LOBSTR',
-			icon: 'https://stellar.walletskit.dev/lobstr.svg',
-			isAvailable: !!(window as any).stellar?.isLobstr
-		},
-		{
-			id: 'hana',
-			name: 'Hana Wallet',
-			icon: 'https://stellar.walletskit.dev/hana.svg',
-			isAvailable: !!(window as any).hana?.stellar
-		},
-		{
-			id: 'klever',
-			name: 'Klever Wallet',
-			icon: 'https://stellar.walletskit.dev/klever.svg',
-			isAvailable: !!(window as any).klever
-		},
-		{
-			id: 'onekey',
-			name: 'OneKey',
-			icon: 'https://stellar.walletskit.dev/onekey.svg',
-			isAvailable: !!(window as any).onekey?.stellar
-		},
-		{
-			id: 'bitget',
-			name: 'Bitget Wallet',
-			icon: 'https://stellar.walletskit.dev/bitget.svg',
-			isAvailable: !!(window as any).bitgetWallet?.stellar
-		},
-		{
-			id: 'cactuslink',
-			name: 'CactusLink',
-			icon: 'https://stellar.walletskit.dev/cactuslink.svg',
-			isAvailable: !!(window as any).cactusLink
-		},
-		{
-			id: 'dcent',
-			name: 'D\'CENT',
-			icon: 'https://stellar.walletskit.dev/dcent.svg',
-			isAvailable: !!(window as any).dcent
-		}
-	];
-
-	return wallets;
-}
-
 export async function getAvailableWallets(): Promise<WalletInfo[]> {
 	if (typeof window === 'undefined') return [];
-	const detected = detectWalletsInBrowser();
-	return detected.map((w) => ({
-		id: w.id,
-		name: w.name,
-		icon: w.icon,
-		isAvailable: w.isAvailable,
-		moduleType: 'wallet'
-	}));
+	ensureInit();
+	try {
+		const wallets = await StellarWalletsKit.refreshSupportedWallets();
+		return wallets.map((w: any) => ({
+			id: w.id,
+			name: w.name,
+			icon: w.icon,
+			isAvailable: w.isAvailable,
+			moduleType: w.type
+		}));
+	} catch (err) {
+		console.error('Failed to load wallets:', err);
+		return [];
+	}
 }
 
 export async function connectWalletById(
