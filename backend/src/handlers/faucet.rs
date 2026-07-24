@@ -21,6 +21,14 @@ pub async fn request_airdrop(
         .await
         .map_err(|e| AppError::NetworkError(format!("Airdrop failed: {}", e)))?;
 
+    let successful = result["successful"].as_bool().unwrap_or(false);
+    if !successful {
+        let detail = result["detail"]
+            .as_str()
+            .unwrap_or("Friendbot request failed");
+        return Err(AppError::NetworkError(format!("Airdrop failed: {}", detail)));
+    }
+
     let hash = result["hash"]
         .as_str()
         .unwrap_or("unknown")

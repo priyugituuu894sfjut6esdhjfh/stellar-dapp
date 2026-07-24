@@ -99,8 +99,8 @@ impl StellarClient {
     }
 
     pub async fn request_airdrop(&self, address: &str) -> Result<Value> {
-        let url = format!("{}/accounts/{}/friendbot", self.horizon_url, address);
-        let resp: Value = self.http.post(&url).send().await?.json().await?;
+        let url = format!("{}/friendbot?addr={}", self.horizon_url, address);
+        let resp = self.http.get(&url).send().await?.json().await?;
         Ok(resp)
     }
 

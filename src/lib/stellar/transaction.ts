@@ -35,7 +35,20 @@ export async function sendXlm(
 	try {
 		await validateTransaction(sourcePublicKey, destinationAddress, amount);
 
-		const sourceAccount = await horizonServer.loadAccount(sourcePublicKey);
+		let sourceAccount;
+		try {
+			sourceAccount = await horizonServer.loadAccount(sourcePublicKey);
+		} catch (loadErr: any) {
+			const status = loadErr?.response?.status || loadErr?.status;
+			if (status === 404) {
+				return {
+					success: false,
+					message:
+						'Account not found on testnet. This account has not been funded yet. Use the "Request Test XLM" button in your balance card to receive testnet funds before sending.'
+				};
+			}
+			throw loadErr;
+		}
 
 		const transaction = new TransactionBuilder(sourceAccount, {
 			fee: BASE_FEE,
