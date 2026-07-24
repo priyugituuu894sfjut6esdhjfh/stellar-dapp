@@ -1,0 +1,20 @@
+svelte.config.js
+  s_6143eaeca8f37d::t_d70d027d845d15 1-6,12-23
+  s_6143eaeca8f37d::t_d8e917674f05b1 7-11
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "80af42fbdc3c20faddb245bbb7a29f73f4fff644",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
