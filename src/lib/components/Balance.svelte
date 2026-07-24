@@ -47,9 +47,7 @@
 			} else {
 				faucetMessage = msg || 'Airdrop failed. Please try again in a moment.';
 			}
-			if (faucetStatus !== 'idle') {
-				setTimeout(() => { faucetStatus = 'idle'; }, 6000);
-			}
+			setTimeout(() => { faucetStatus = 'idle'; }, 6000);
 		}
 		faucetLoading = false;
 	}
