@@ -47,9 +47,9 @@ export async function callContract(
 
 		return {
 			success: true,
-			result: result.data.result,
-			hash: result.data.hash,
-			message: `Contract call successful! Hash: ${result.data.hash}`
+			result: result.result,
+			hash: result.hash,
+			message: `Contract call successful! Hash: ${result.hash}`
 		};
 	} catch (error: any) {
 		return { success: false, message: `Contract call error: ${error.message || error}` };
@@ -63,7 +63,7 @@ export async function readContractState(
 ): Promise<{ success: boolean; result?: any; message: string }> {
 	try {
 		const result = await simulateContract(contractAddress, method, args);
-		return { success: true, result: result.data, message: 'State read successfully' };
+		return { success: true, result: result, message: 'State read successfully' };
 	} catch (error: any) {
 		return { success: false, message: `Read error: ${error.message || error}` };
 	}

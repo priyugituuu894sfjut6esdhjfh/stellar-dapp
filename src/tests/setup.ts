@@ -9,15 +9,14 @@ vi.mock('$lib/stellar/wallet', () => ({
 }));
 
 vi.mock('$lib/api', () => ({
-	fetchBalance: vi.fn().mockResolvedValue({ data: { balance: '100.0000000' } }),
+	fetchBalance: vi.fn().mockResolvedValue({ balance: '100.0000000' }),
 	fetchBalances: vi.fn().mockResolvedValue({
-		data: { balances: [{ asset: 'XLM', balance: '100.0000000' }] }
+		balances: [{ asset: 'XLM', balance: '100.0000000' }]
 	}),
-	validateTransaction: vi.fn().mockResolvedValue({ data: { valid: true } }),
-	submitTransaction: vi.fn().mockResolvedValue({ data: { hash: 'abc123' } }),
-	fetchTransactionHistory: vi.fn().mockResolvedValue({ data: [] }),
-	fetchContractState: vi.fn().mockResolvedValue({ data: { counter: 0 } }),
-	simulateContractCall: vi.fn().mockResolvedValue({ data: { result: '0' } }),
-	submitContractCall: vi.fn().mockResolvedValue({ data: { hash: 'abc123' } }),
-	requestFaucet: vi.fn().mockResolvedValue({ data: { success: true } })
+	validateTransaction: vi.fn().mockResolvedValue({ valid: true }),
+	submitTransaction: vi.fn().mockResolvedValue({ hash: 'abc123' }),
+	fetchTransactionHistory: vi.fn().mockResolvedValue([]),
+	simulateContract: vi.fn().mockResolvedValue({ counter: 0 }),
+	callContract: vi.fn().mockResolvedValue({ hash: 'abc123' }),
+	requestAirdrop: vi.fn().mockResolvedValue({ success: true })
 }));

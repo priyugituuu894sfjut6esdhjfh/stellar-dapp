@@ -67,8 +67,8 @@ export async function sendXlm(
 
 		return {
 			success: true,
-			hash: result.data.hash,
-			message: `Transaction successful! Hash: ${result.data.hash}`
+			hash: result.hash,
+			message: `Transaction successful! Hash: ${result.hash}`
 		};
 	} catch (error: any) {
 		return {
@@ -92,7 +92,7 @@ export async function getTransactionHistory(
 > {
 	try {
 		const res = await fetchTransactionHistory(publicKey, limit);
-		return res.data.map((tx) => ({
+		return res.map((tx) => ({
 			hash: tx.hash,
 			type: tx.memo || 'payment',
 			timestamp: new Date(tx.created_at).toLocaleString(),
