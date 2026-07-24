@@ -1,0 +1,44 @@
+src/lib/stellar/wallet.ts
+  s_6143eaeca8f37d::t_860aec1e359cb2 5-11,28,30,42-52,54-63,66-69,72-75,78-81,87-101,104-106,108,119,131,133,135-138
+README.md
+  s_6143eaeca8f37d::t_ca1dd3a6c27398 60
+  s_6143eaeca8f37d::t_00e78d934548f7 140
+  s_6143eaeca8f37d::t_32c3d5385c4481 1
+  s_6143eaeca8f37d::t_81d8f4d6b084b2 153
+render.yaml
+  s_6143eaeca8f37d::t_cd1c4df3fb5b3d 3
+src/lib/stores/wallet.ts
+  s_6143eaeca8f37d::t_74a2d1cfd917e3 31,37,80,89-92
+  s_6143eaeca8f37d::t_955f61d4662ed3 93-94
+src/routes/+page.svelte
+  s_6143eaeca8f37d::t_23ff4e75049727 53
+  s_6143eaeca8f37d::t_53cee3445a2b98 6
+  s_6143eaeca8f37d::t_b01e7160e1992c 15
+  s_6143eaeca8f37d::t_0f4d4376bea370 102
+  s_6143eaeca8f37d::t_e12b0e5a0f0f77 114
+src/routes/app/+page.svelte
+  s_6143eaeca8f37d::t_7f2d23e358dcee 12-13
+  s_6143eaeca8f37d::t_7d3e2ff6d8d973 63
+  s_6143eaeca8f37d::t_d1d4cfe98dd823 52
+  s_6143eaeca8f37d::t_983309ab8567d8 22
+src/app.html
+  s_6143eaeca8f37d::t_5fd812de9b3f73 10
+package.json
+  s_6143eaeca8f37d::t_89569fa99e0f8a 2
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "168092fa4a3d2f245d1c81821db6f96fb1bbc817",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
