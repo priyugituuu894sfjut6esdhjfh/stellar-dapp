@@ -1,0 +1,19 @@
+vercel.json
+  s_3f48f987e98f8d::t_81cbd5fa7846b6 10-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "4e6589d35e41dce01beb505ab5f531111a50b86a",
+  "prompts": {},
+  "sessions": {
+    "s_3f48f987e98f8d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06b4ae603fferHP4TPEYOs6EuB",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
