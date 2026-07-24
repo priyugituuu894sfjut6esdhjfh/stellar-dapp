@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+backend/target/
+contracts/*/target/
+
+# Build
+.svelte-kit/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+backend/.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
