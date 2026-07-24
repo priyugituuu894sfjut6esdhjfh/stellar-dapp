@@ -1,0 +1,19 @@
+src/lib/components/Balance.svelte
+  s_3f48f987e98f8d::t_40d9f60133cded 50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "967172f122cc65cdf094de313d425c8f2222cad3",
+  "prompts": {},
+  "sessions": {
+    "s_3f48f987e98f8d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06b4ae603fferHP4TPEYOs6EuB",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
