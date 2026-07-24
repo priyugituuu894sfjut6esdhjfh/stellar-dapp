@@ -1,0 +1,30 @@
+src/lib/stellar/balance.ts
+  s_6143eaeca8f37d::t_3eac894939adb0 6,18
+src/lib/stellar/contract.ts
+  s_6143eaeca8f37d::t_7255c7a88c6b27 66
+  s_6143eaeca8f37d::t_1274f29cba4879 50-52
+src/lib/stellar/transaction.ts
+  s_6143eaeca8f37d::t_6fa4465fb13339 70-71
+  s_6143eaeca8f37d::t_2d736b438d477b 95
+src/lib/api.ts
+  s_6143eaeca8f37d::t_b126353cfe70fa 6,17,20,28,35-36,41,47,54,61,68,75
+  s_6143eaeca8f37d::t_13a58cf15df2d2 5,7-8,10,13,19,21-22,24
+src/tests/setup.ts
+  s_6143eaeca8f37d::t_0a4d0ee78a13d2 12,14,16-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "4b0249dc212ec23139b11be47537219cf9ea3f9e",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
