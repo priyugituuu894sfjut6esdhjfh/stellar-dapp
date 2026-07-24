@@ -1,0 +1,19 @@
+README.md
+  s_6143eaeca8f37d::t_65a0cd8f059314 134-149,155,167,171-172
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "8e92ceb5c5acff446909db7b28881855fbb49908",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
