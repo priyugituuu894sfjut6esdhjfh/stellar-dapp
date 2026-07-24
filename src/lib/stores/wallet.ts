@@ -1,10 +1,11 @@
 import { writable, derived } from 'svelte/store';
 import {
-	connectWallet,
+	connectWalletById,
 	disconnectWallet,
-	getPublicKey,
-	checkFreighterInstalled
+	getAddress,
+	getAvailableWallets
 } from '$lib/stellar/wallet';
+import type { WalletInfo } from '$lib/stellar/wallet';
 import { getXlmBalance } from '$lib/stellar/balance';
 
 export const isConnected = writable(false);
@@ -13,10 +14,13 @@ export const balance = writable('0');
 export const isLoading = writable(false);
 export const error = writable<string | null>(null);
 export const walletInstalled = writable(false);
+export const availableWallets = writable<WalletInfo[]>([]);
+export const connectedWalletName = writable<string | null>(null);
 export const txStatus = writable<{
 	status: 'idle' | 'pending' | 'success' | 'error';
 	message: string;
 	hash?: string;
+	error?: string;
 }>({ status: 'idle', message: '' });
 
 export const shortAddress = derived(publicKey, ($pk) => {
@@ -25,54 +29,82 @@ export const shortAddress = derived(publicKey, ($pk) => {
 });
 
 export async function initializeWallet() {
-	const installed = await checkFreighterInstalled();
-	walletInstalled.set(installed);
+	try {
+		const wallets = await getAvailableWallets();
+		availableWallets.set(wallets);
+		walletInstalled.set(wallets.some((w) => w.isAvailable));
 
-	if (installed) {
-		const pk = await getPublicKey();
+		const pk = await getAddress();
 		if (pk) {
 			isConnected.set(true);
 			publicKey.set(pk);
+			const connectedWallet = wallets.find((w) => w.isAvailable);
+			connectedWalletName.set(connectedWallet?.name || 'Wallet');
 			await refreshBalance(pk);
 		}
+	} catch (err) {
+		console.error('Failed to initialize wallet:', err);
+		error.set('Failed to initialize wallet connection.');
 	}
 }
 
-export async function connect() {
+export async function connect(walletId: string) {
 	isLoading.set(true);
 	error.set(null);
 
-	const result = await connectWallet();
+	try {
+		const result = await connectWalletById(walletId);
 
-	if ('publicKey' in result) {
-		isConnected.set(true);
-		publicKey.set(result.publicKey);
-		await refreshBalance(result.publicKey);
-	} else {
-		error.set(result.message);
+		if ('publicKey' in result) {
+			isConnected.set(true);
+			publicKey.set(result.publicKey);
+			const wallets = await getAvailableWallets();
+			const wallet = wallets.find((w) => w.id === walletId);
+			connectedWalletName.set(wallet?.name || 'Wallet');
+			await refreshBalance(result.publicKey);
+		} else {
+			error.set(result.message);
+		}
+	} catch (err) {
+		error.set('An unexpected error occurred while connecting.');
+		console.error('Connect error:', err);
 	}
 
 	isLoading.set(false);
 }
 
 export async function disconnect() {
-	await disconnectWallet();
+	try {
+		await disconnectWallet();
+	} catch (err) {
+		console.error('Disconnect error:', err);
+	}
 	isConnected.set(false);
 	publicKey.set(null);
 	balance.set('0');
+	connectedWalletName.set(null);
 }
 
 export async function refreshBalance(pk?: string) {
-	const address = pk || await getPublicKey();
-	if (!address) return;
-	const bal = await getXlmBalance(address);
-	balance.set(bal);
+	try {
+		const address = pk || (await getAddress());
+		if (!address) return;
+		const bal = await getXlmBalance(address);
+		balance.set(bal);
+	} catch (err) {
+		console.error('Failed to refresh balance:', err);
+	}
 }
 
 export function setTxStatus(
 	status: 'idle' | 'pending' | 'success' | 'error',
 	message: string,
-	hash?: string
+	hash?: string,
+	errorMsg?: string
 ) {
-	txStatus.set({ status, message, hash });
+	txStatus.set({ status, message, hash, error: errorMsg });
+}
+
+export function clearError() {
+	error.set(null);
 }
