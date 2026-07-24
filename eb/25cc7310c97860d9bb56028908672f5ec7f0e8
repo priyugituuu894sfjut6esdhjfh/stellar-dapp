@@ -1,0 +1,21 @@
+.gitignore
+  s_6143eaeca8f37d::t_2585f88e3ecdc4 4
+  s_6143eaeca8f37d::t_a262207b150691 1-3
+  s_6143eaeca8f37d::t_0a7efb6188bf1d 5-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "eb25cc7310c97860d9bb56028908672f5ec7f0e8",
+  "prompts": {},
+  "sessions": {
+    "s_6143eaeca8f37d": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_06c84fd0effeQrKDRDLouKssEy",
+        "model": "unknown"
+      },
+      "human_author": "priyugituuu894sfjut6esdhjfh <pritam1239999@gmail.com>"
+    }
+  }
+}
